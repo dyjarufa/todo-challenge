@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { loadTodosFromLocalStorage, saveTodosToLocalStorage } from '../utils/loadTodosFromLocalStorage ';
+import { loadTodosFromLocalStorage, saveTodosToLocalStorage } from '../utils/loadTodosFromLocalStorage';
 
 export interface Todo {
   id: number;

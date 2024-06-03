@@ -1,15 +1,60 @@
-# React Micro Frontend Todo List
 
-## Configuração e Execução
+# Todo List Micro Frontend
 
-1. Clone o repositório.
-2. Instale as dependências: `npm install`.
-3. Inicie a aplicação: `npm start`.
-4. Execute os testes: `npm test`.
+## Overview
 
-## Arquitetura e Decisões de Design
+This project is a React Micro Frontend (MFE) component that encapsulates a fully functional todo list application. It demonstrates the ability to design and structure a maintainable React application with TypeScript, focusing on code organization, testing, and integration with other host applications.
 
-- O componente `TodoList` utiliza o estado local e `localStorage` para persistência.
-- A aplicação está escrita em TypeScript para garantir segurança de tipos.
-- Utilizei os princípios de micro frontends para garantir a integração independente em várias aplicações.
-- Os testes foram escritos utilizando `@testing-library/react` para garantir a cobertura significativa do componente.
+## Features
+
+- **Todo Creation**: Users can input a new todo task description and add tasks to a list.
+- **Todo Status**: Tasks have a checkbox to mark them as completed or incomplete, with visual distinction.
+- **Todo Persistence**: Todo items are saved using the browser’s localStorage to persist across page refreshes and sessions.
+- **Filters**: Buttons to filter the list by "All", "Active", and "Completed".
+
+## Design and Architectural Choices
+
+- **React & TypeScript**: Ensures type safety and maintainability.
+- **React Hooks**: Custom hooks (`useTodos`, `useTodoForm`) for state management and form handling.
+- **LocalStorage**: Utilized for persisting todo items.
+- **Testing**: Comprehensive unit tests using Jest and React Testing Library to cover core component logic and edge cases.
+
+## Setup Instructions
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone <repository-url>
+   cd todo-challenge
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Run the Development Server**:
+
+   ```bash
+   pnpm run dev
+   ```
+
+4. **Build the Project**:
+
+   ```bash
+   pnpm run build
+   ```
+
+5. **Run Tests**:
+
+   ```bash
+   pnpm run test
+   ```
+
+## Thought Process
+
+- **Componentization**: The application is divided into reusable components with clear responsibilities.
+- **Custom Hooks**: `useTodos` manages todo states and `useTodoForm` handles form validation and submission.
+- **LocalStorage Integration**: Ensures todos persist across sessions.
+- **Testing**: Focused on testing both the core logic and user interactions to ensure robustness.

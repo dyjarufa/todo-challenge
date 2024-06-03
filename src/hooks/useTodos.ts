@@ -9,15 +9,11 @@ export interface Todo {
 
 type Filter = 'all' | 'active' | 'completed';
 
-export const useTodos = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<Filter>('all');
 
-  useEffect(() => {
-    const savedTodos = loadTodosFromLocalStorage();
-    console.log('savedTodos', savedTodos)
-    setTodos(savedTodos);
-  }, []);
+
+export const useTodos = () => {
+  const [todos, setTodos] = useState<Todo[]>(loadTodosFromLocalStorage);
+  const [filter, setFilter] = useState<Filter>('all');
 
   useEffect(() => {
     saveTodosToLocalStorage(todos);

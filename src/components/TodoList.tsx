@@ -1,26 +1,26 @@
+import './TodoList.css';
 import { useTodoForm } from "../hooks/useTodoForm";
 import { useTodos } from "../hooks/useTodos";
 
-
-function TodoList() {
+export function TodoList() {
   const { todos, addTodo, toggleTodo, setFilter } = useTodos();
   const { register, handleSubmit, errors } = useTodoForm(addTodo);
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
         <input {...register("description")} placeholder="New todo" />
         <button type="submit">Add Todo</button>
         {errors.description && <span>{errors.description.message}</span>}
       </form>
-      <div>
+      <div className="filters">
         <button onClick={() => setFilter('all')}>All</button>
         <button onClick={() => setFilter('active')}>Active</button>
         <button onClick={() => setFilter('completed')}>Completed</button>
       </div>
-      <ul>
+      <ul className="todo-list">
         {todos.map(todo => (
-          <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+          <li key={todo.id} className={todo.completed ? 'completed' : ''}>
             <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
             {todo.description}
           </li>
@@ -30,4 +30,3 @@ function TodoList() {
   );
 }
 
-export default TodoList;
